@@ -1,0 +1,77 @@
+\documentclass{article}
+\usepackage[a4paper, total={6.2in, 10in}]{geometry}
+\usepackage{graphicx} % Required for inserting images
+\begin{document}
+
+\title{Práctica 1: Lenguajes}
+\date{2do cuatri 2024 - si encontrás algún error mi tg es @kztqz}
+
+\renewcommand{\baselinestretch}{1.5} 
+
+\maketitle
+
+\section*{Ejercicio 1}{Sea $\Sigma$ = \{\textit{a, b}\} un alfabeto. Hallar:
+\\
+\\
+\centerline{$\Sigma^0,\ \ \ \Sigma^1,\ \ \ \Sigma^2,\ \ \ \Sigma^*,\ \ \ \Sigma^+,\ \ \ |\Sigma|,\ \ \ |\Sigma^0|$}
+
+\begin{itemize}
+    \item $\Sigma^0 = \{\lambda\}$
+    \item $\Sigma^1 = \Sigma = \{a, b\}$
+    \item $\Sigma^2 = \{aa, ab, ba, bb\}$
+    \item $\Sigma^* = \bigcup\limits_{i \ge 0}\Sigma^i = \{\lambda, a, b, aa, ab, ba, bb\}$
+    \item $\Sigma^+ = \bigcup\limits_{i \ge 1}\Sigma^i = \{a, b, aa, ab, ba, bb\}$
+    \item $|\Sigma| = 2$
+    \item $|\Sigma^0| = 0$
+\end{itemize}
+
+\section*{Ejercicio 2}{Decidir si, dado $\Sigma$ = \{\textit{a, b}\} vale:}
+\\
+\\
+\centerline{$\lambda\in\Sigma,\ \ \ \lambda\subseteq\Sigma,\ \ \ \lambda\in\Sigma^+,\ \ \ \lambda\in\Sigma^*,\ \ \ \Sigma^0=\lambda,\ \ \ \Sigma^0=\{\lambda\}$}
+
+\begin{itemize}
+    \item $\lambda\in\Sigma \rightarrow {Falso}$ 
+    \item $\lambda\subseteq\Sigma \rightarrow {Falso}$ 
+    \item $\lambda\in\Sigma^+ \rightarrow {Falso}$ 
+    \item $\lambda\in\Sigma^* \rightarrow {Verdadero}$ 
+    \item $\Sigma^0=\lambda \rightarrow {Falso}$ 
+    \item $\Sigma^0=\{\lambda\} \rightarrow {Verdadero}$ 
+\end{itemize}
+
+\section*{Ejercicio 3}{Sea \textit{$\alpha = abb$} una cadena. Calcular:}
+\\
+\\
+\centerline{$\alpha^0,\ \ \ \alpha^1,\ \ \ \alpha^2,\ \ \ \alpha^3,\ \ \ \prod_{k=0,...,3}{\alpha^k = \alpha^0.\alpha^1.\alpha^2.\alpha^3},\ \ \ \alpha^r$}
+
+\begin{itemize}
+    \item $\alpha^0 = \lambda$
+    \item $\alpha^1 = \textit{abb}$
+    \item $\alpha^2 = \textit{abb}{.}\textit{abb}$
+    \item $\alpha^3 = \textit{abb}{.}\textit{abb}{.}\textit{abb} = \textit{abbabbabb}$
+    \item $\prod_{k=0,...,3}{\alpha^k = \alpha^0.\alpha^1.\alpha^2.\alpha^3} = \lambda.\textit{abb}{.}\textit{abbabb}{.}\textit{abbabbabb} = \textit{abbabbabbabbabbabb}$
+    \item $\alpha^r = (\textit{abb})^r = \textit{bba}$
+\end{itemize}
+
+\section*{Ejercicio 4}{{Sean las cadenas \textit{$\alpha = abb$} y \textit{$\beta = acb$}. Calcular:}
+\\
+\\
+\centerline{$\alpha\beta,\ \ \ (\alpha\beta)^r,\ \ \ \beta^r,\ \ \ \beta^r\alpha^r,\ \ \ \lambda\alpha,\ \ \ \lambda\beta, \ \ \ \alpha\lambda\beta, \ \ \ \alpha^2\lambda^3\beta^2$}
+\\
+\\
+\begin{itemize}
+    \item $\alpha\beta = \textit{abbacb}$
+    \item $(\alpha\beta)^r = (\textit{abbacb})^r = \textit{bcabba}$
+    \item $\beta^r = (\textit{acb})^r = \textit{bca}$
+    \item $\beta^r\alpha^r = (\textit{acb})^r(\textit{abb})^r = \textit{bcabba}$
+    \item $\lambda\alpha = \alpha = \textit{abb}$
+    \item $\lambda\beta = \beta = \textit{acb}$
+    \item $\alpha\lambda\beta = \alpha\beta = \textit{abbacb}$
+    \item $\alpha^2\lambda^3\beta^2 = \alpha^2\beta^2 = \textit{abbabbacbacb}$
+\end{itemize}
+
+\section*{Ejercicio 5}{Dado un alfabeto $\Sigma$, sean \textit{x},\textit{y} $\in \Sigma$ y $\alpha,\beta \in \Sigma^*$. Demostrar que:}
+\\
+\\
+
+\end{document}
