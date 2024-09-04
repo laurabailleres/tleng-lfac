@@ -1,6 +1,8 @@
 \documentclass{article}
 \usepackage[a4paper, total={6.2in, 10in}]{geometry}
-\usepackage{graphicx} % Required for inserting images
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{graphicx}
 \begin{document}
 
 \title{Práctica 1: Lenguajes}
@@ -57,8 +59,7 @@
 \\
 \\
 \centerline{$\alpha\beta,\ \ \ (\alpha\beta)^r,\ \ \ \beta^r,\ \ \ \beta^r\alpha^r,\ \ \ \lambda\alpha,\ \ \ \lambda\beta, \ \ \ \alpha\lambda\beta, \ \ \ \alpha^2\lambda^3\beta^2$}
-\\
-\\
+
 \begin{itemize}
     \item $\alpha\beta = \textit{abbacb}$
     \item $(\alpha\beta)^r = (\textit{abbacb})^r = \textit{bcabba}$
@@ -71,7 +72,83 @@
 \end{itemize}
 
 \section*{Ejercicio 5}{Dado un alfabeto $\Sigma$, sean \textit{x},\textit{y} $\in \Sigma$ y $\alpha,\beta \in \Sigma^*$. Demostrar que:}
+\begin{enumerate}[label=\alph*.,font=\itshape]
+    \item $|x.(y.\alpha)| = 2 + |\alpha|$
+    \item $|\alpha^r|=|\alpha|$
+    \item $|\alpha x \beta| = |x \alpha \beta|$
+    \item $|\alpha . \alpha = 2 |\alpha|$
+    \item $(\alpha . \beta)^r = \beta^r . \alpha^r$
+    \item $(\alpha^r)^r = \alpha$
+    \item $(\alpha^r)^n = (\alpha^n)^r$
+\end{enumerate}
+
+{($|\alpha|$ indica la longitud de la cadena $\alpha)$.}
 \\
 \\
+{Para resolver estos ejercicios va a ser útil tener a mano estas def / demos:}
+
+\renewcommand\labelenumi{(\theenumi)}
+\begin{enumerate}
+    \item {Definición recursiva de la longitud:}
+    \\
+    \\
+    \centerline{{$|\lambda| = 0$}}
+    \\
+    \\
+    \centerline{{$|x.\alpha| = 1 + |\alpha|$}}
+
+    \item {Propiedad: $|\alpha + \beta| = |\alpha|.|\beta|$. Demo por inducción estructural sobre $\alpha$:}
+    \\
+    \\
+    \centerline{1. Si $\alpha = \lambda$:}
+    \\
+    \\
+    \centerline{$|\lambda.\beta| = |\beta| = 0 + |\beta| = |\lambda| + |\beta|$}
+    \\
+    \\
+    \centerline{2. Si $\alpha = x.\alpha'$, suponemos que vale para $\alpha'$, y:}
+    \\
+    \\
+    \centerline{$|(x.\alpha').\beta| = |x.(\alpha'.\beta)|$ \ \textbf{(def. $\alpha'$)}}
+    \\
+    \\
+    \centerline{ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $= 1 +|\alpha'.\beta|$  \ \textbf{(def. longitud)}}
+    \\
+    \\
+    \centerline{$ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ = 1 +|\alpha'| + |\beta|$ \ \textbf{(hip. ind)}}
+    \\
+    \\
+    \centerline{$ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ = |x.\alpha'| + |\beta|$ \ \textbf{(def. longitud)}}
+    \\
+    \\
+    \centerline{$ \ \ \ \ \ \ \ \ \ \ \ = |\alpha| + |\beta|$ \ \textbf{(def. $\alpha'$)}}    
+
+    \item {Definición recursiva de la reversa:}
+    \\
+    \\
+    \centerline{$\lambda^r = \lambda$}
+    \\
+    \\
+    \centerline{$(x.\alpha)^r = \alpha^r.x$}
+\end{enumerate}
+
+
+\begin{enumerate}[label=\alph*.,font=\itshape]
+    \item {Quiero demostrar que $|x.(y.\alpha)| = 2 + |\alpha|$.
+    \\
+    \\
+    {Como $x \in \Sigma$, por la definición recursiva de longitud, puedo sacarlo de la operación longitud \\ \\ de la cadena y sumar un 1. Lo mismo hago para $y \in \Sigma$.}
+    \\
+    \\
+$|x.(y.\alpha)| \ \ {\stackrel{\mathclap{\normalfont\mbox{(1)}}}{=}} \ \ 1 + |y.a| \ \ {\stackrel{\mathclap{\normalfont\mbox{(1)}}}{=}} \ \ 1 + 1 + |\alpha| = 2 + |\alpha|$}
+    \\ 
+    \item {Quiero demostrar que $|\alpha^r|=|\alpha|$. Pruebo por inducción: \\ \\
+    \centerline{1. Caso base (si $\alpha = \lambda$):}
+    \\
+    \\
+    \centerline{$|\lambda|^r{ \ \stackrel{\mathclap{\normalfont\mbox{(3)}}}{=}} \ |\lambda|$}
+    }
+\end{enumerate}
+
 
 \end{document}
