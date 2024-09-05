@@ -4,6 +4,7 @@
 \usepackage{mathtools}
 \usepackage{graphicx}
 \usepackage{amssymb}
+\usepackage{multicol}
 \begin{document}
 
 \title{Práctica 1: Lenguajes}
@@ -77,7 +78,7 @@
     \item $|x.(y.\alpha)| = 2 + |\alpha|$
     \item $|\alpha^r|=|\alpha|$
     \item $|\alpha x \beta| = |x \alpha \beta|$
-    \item $|\alpha . \alpha = 2 |\alpha|$
+    \item $|\alpha . \alpha| = 2 |\alpha|$
     \item $(\alpha . \beta)^r = \beta^r . \alpha^r$
     \item $(\alpha^r)^r = \alpha$
     \item $(\alpha^r)^n = (\alpha^n)^r$
@@ -98,7 +99,7 @@
     \\
     \centerline{{$|x.\alpha| = 1 + |\alpha|$}}
 
-    \item {Propiedad: $|\alpha + \beta| = |\alpha|.|\beta|$. Demo por inducción estructural sobre $\alpha$:}
+    \item {Propiedad: $|\alpha . \beta| = |\alpha|+|\beta|$. Demo por inducción estructural sobre $\alpha$:}
     \\
     \\
     \centerline{1. Si $\alpha = \lambda$:}
@@ -162,7 +163,7 @@ $|x.(y.\alpha)| \ \ {\stackrel{\mathclap{\normalfont\mbox{(1)}}}{=}} \ \ 1 + |y.
     \item {$\mathcal{L} = \{a^nb^m \ | \ n \geq 1 \land m \geq 1\}$}
     \item {$\mathcal{L} = \{a^nb^m \ | \ n \geq 1 \land m \geq 0\}$}
     \item {$ \mathcal{L} = \{ a^n(ac)^p(bab)^q \ | \ n \geq 0 \land q = p + 2 \land p \geq 1$ \}}
-    \item {$\mathcal{L} = \{ a, b \}^3 \ \bigcap \ \Lambda $}
+    \item {$\mathcal{L} = \{ a, b \}^3 \ \cap \ \Lambda $}
     \item {$\mathcal{L} = \{ \alpha\alpha^r \ | \ \alpha \in \{ a,b \} ^+\}$}
     \item {$\mathcal{L} = \{ \alpha \in \{ a,b \} ^+ \ | \ \alpha = \alpha^r \}$ \\ \\}
 \end{enumerate}
@@ -203,13 +204,13 @@ $|x.(y.\alpha)| \ \ {\stackrel{\mathclap{\normalfont\mbox{(1)}}}{=}} \ \ 1 + |y.
     \\
     \\
     Ejemplos: \{$acbabbabbab, acacbabbabbabbab, aacbabbabbab$\}}}
-    \item {$\mathcal{L} = \{ a, b \}^3 \ \bigcap \ \Lambda\}$
+    \item {$\mathcal{L} = \{ a, b \}^3 \ \cap \ \Lambda\}$
     \\
     \\
-    {En castellano: ? }
+    {En castellano: como $\Lambda$ (lambda mayúscula) es el conjunto que contiene solamente a la palabra vacía y todas las cadenas pertenecientes a $\mathcal{L}$ tienen longitud igual a 3, la intersección de ambos es vacía.}
     \\
     \\
-    Ejemplos: \{$ ? $\}}
+    Ejemplos: \{$\varnothing$\}}
     \item {$\mathcal{L} = \{ \alpha\alpha^r \ | \ \alpha \in \{ a,b \} ^+ \} $
     \\
     \\
@@ -217,10 +218,70 @@ $|x.(y.\alpha)| \ \ {\stackrel{\mathclap{\normalfont\mbox{(1)}}}{=}} \ \ 1 + |y.
     \\
     \\
     Ejemplos: \{$aa, bb, abba, baab, aabbaa, babaabab$\}}
-
-    
+    \item {$\mathcal{L} = \{ \alpha \in \{ a,b \} ^+ \ | \ \alpha = \alpha^r \} $
+    \\
+    \\
+    {En castellano: todas las cadenas de $\mathcal{L}$ son también cadenas de la forma $\alpha \in \{a,b\}^+$ y cumplen que son iguales a su reversa. Por la definición $(3)$ del ejercicio 5 vemos que $\lambda \in \mathcal{L}$.}
+    \\
+    \\
+    Ejemplos: \{$\lambda, a, b, aa, aba, bbb$\}}
 \end{enumerate}
 
+\section*{Ejercicio 7}{Definir por comprensión los siguientes lenguajes:}
+\begin{enumerate}[label=\alph*.,font=\itshape]
+    \item {$\mathcal{L}_1 = \{ab, aabb, aaabbb, ...$\}}
+    \item {$\mathcal{L}_2 = \{aab, aaaabb, aaaaaabbb, ...\}$}
+    \item {$\mathcal{L}_3 = \{aaabccc, aaaabcccc, aaaaabccccc, ...\}$ \\ \\}
+\end{enumerate}
+{Propongo la definición por comprensión \textbf{más restrictiva} posible.}
+\begin{enumerate}[label=\alph*.,font=\itshape]
+    \item {$\mathcal{L}_1 = \{ab, aabb, aaabbb, ...$\}}
+    \\
+    \\
+    {\{$a^nb^n \ | \ n \geq 1$\}}
+    \\
+    \\
+    {En castellano: las cadenas de $\mathcal{L}$ tienen al menos una $a$ y una $b$ (por lo tanto, $\lambda \notin \mathcal{L}$) y la cantidad de apariciones de $a$ es igual a la cantidad de apariciones de $b$. Es igual al $6. a$}
+    \item {$\mathcal{L}_2 = \{aab, aaaabb, aaaaaabbb, ...\}$}
+    \\
+    \\
+    {\{$a^nb^m \ | \ m \geq 1 \ \land \ n = m * 2$\}}
+    \\
+    \\
+    {En castellano: las cadenas de $\mathcal{L}$ tienen al menos una $b$ y dos $a$ (por lo tanto, $\lambda \notin \mathcal{L}$) y la cantidad de apariciones de $a$ es el doble de la cantidad de apariciones de $b$. }
+    \item {$\mathcal{L}_3 = \{aaabccc, aaaabcccc, aaaaabccccc, ...\}$}
+    \\
+    \\
+    {\{$a^nbc^n \ | \ n \geq 3$\}}
+    \\
+    \\
+    {En castellano:  las cadenas de $\mathcal{L}$ tienen al menos tres apariciones de $c$ y la cantidad de apariciones de $a$ es igual a la de $a$ (por lo tanto, la cantidad mínima de apariciones de $a$ también es 3). Además todas las cadenas tienen exactamente una aparición de $b$.}
+\end{enumerate}
+\section*{Ejercicio 8}{Dados $\mathcal{L}_1 = \{a, bc\}$, $\mathcal{L}_2 = \{aaa,bc\}$, y siendo $\Lambda = \{\lambda\},$ calcular:}
+\begin{multicols}{4}
+\begin{enumerate}[label=\alph*.,font=\itshape]
+    \item {$\mathcal{L}_1 \cup \mathcal{L}_2$}
+    \item {$\mathcal{L}_1 \cap \mathcal{L}_2$}
+    \item {$\mathcal{L}_1 . \mathcal{L}_2$}
+    \item {$\mathcal{L}_1 . (\mathcal{L}_2)^0$}
+    \item {$\mathcal{L}_1 . (\mathcal{L}_2)^2$}
+    \item {$\mathcal{L}_1 . (\mathcal{L}_2)^+$}
+    \item {{$(\mathcal{L}_1 . \mathcal{L}_2)^+$}}
+    \item {{$(\mathcal{L}_1 . \mathcal{L}_2)^*$}}
+    \item {$\mathcal{L}_1 . \Lambda . \mathcal{L}_2$}
+    \item {$\mathcal{L}_1 \varnothing \mathcal{L}_2$}
+    \item {$(\mathcal{L}_1)^r$}
+    \item {$(\mathcal{L}_1 . \mathcal{L}_2)^r$}
+\end{enumerate}
+\end{multicols}
 
+
+
+\begin{enumerate}[label=\alph*.,font=\itshape]
+    \item {$\mathcal{L}_1 \cup \mathcal{L}_2 = \{a, aaa, bc\}$}
+    \item {$\mathcal{L}_1 \cap \mathcal{L}_2 = \{bc\}$}
+    \item {$\mathcal{L}_1.\mathcal{L}_2 = \{aaaa, abc, bca, bcbc\}$}
+    \item {$\mathcal{L}_1.(\mathcal{L}_2)^0= \mathcal{L}_1 . \lambda = \mathcal{L}_1 = \{a,b\}$}
+\end{enumerate}
 
 \end{document}
