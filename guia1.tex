@@ -23,10 +23,10 @@
     \item $\Sigma^0 = \{\lambda\}$
     \item $\Sigma^1 = \Sigma = \{a, b\}$
     \item $\Sigma^2 = \{aa, ab, ba, bb\}$
-    \item $\Sigma^* = \bigcup\limits_{i \ge 0}\Sigma^i = \{\lambda, a, b, aa, ab, ba, bb\}$
-    \item $\Sigma^+ = \bigcup\limits_{i \ge 1}\Sigma^i = \{a, b, aa, ab, ba, bb\}$
+    \item $\Sigma^* = \bigcup\limits_{i \ge 0}\Sigma^i = \{\lambda, a, b, aa, ab, ba, bb...\}$
+    \item $\Sigma^+ = \bigcup\limits_{i \ge 1}\Sigma^i = \{a, b, aa, ab, ba, bb...\}$
     \item $|\Sigma| = 2$
-    \item $|\Sigma^0| = 0$
+    \item $|\Sigma^0| = 1$
 \end{itemize}
 
 \section*{Ejercicio 2}{Decidir si, dado $\Sigma$ = \{\textit{a, b}\} vale:}
@@ -204,7 +204,7 @@ $|x.(y.\alpha)| \ \ {\stackrel{\mathclap{\normalfont\mbox{(1)}}}{=}} \ \ 1 + |y.
     \\
     \\
     Ejemplos: \{$acbabbabbab, acacbabbabbabbab, aacbabbabbab$\}}}
-    \item {$\mathcal{L} = \{ a, b \}^3 \ \cap \ \Lambda\}$
+    \item {$\mathcal{L} = \{\{ a, b \}^3 \ \cap \ \Lambda\}$
     \\
     \\
     {En castellano: como $\Lambda$ (lambda mayúscula) es el conjunto que contiene solamente a la palabra vacía y todas las cadenas pertenecientes a $\mathcal{L}$ tienen longitud igual a 3, la intersección de ambos es vacía.}
@@ -278,10 +278,34 @@ $|x.(y.\alpha)| \ \ {\stackrel{\mathclap{\normalfont\mbox{(1)}}}{=}} \ \ 1 + |y.
 
 
 \begin{enumerate}[label=\alph*.,font=\itshape]
-    \item {$\mathcal{L}_1 \cup \mathcal{L}_2 = \{a, aaa, bc\}$}
+    \item {$\mathcal{L}_1 \cup \mathcal{L}_2 = \{a, bc, aaa\}$}
     \item {$\mathcal{L}_1 \cap \mathcal{L}_2 = \{bc\}$}
-    \item {$\mathcal{L}_1.\mathcal{L}_2 = \{aaaa, abc, bca, bcbc\}$}
-    \item {$\mathcal{L}_1.(\mathcal{L}_2)^0= \mathcal{L}_1 . \lambda = \mathcal{L}_1 = \{a,b\}$}
+    \item {$\mathcal{L}_1.\mathcal{L}_2 = \{aaaa, abc, bcaaa, bcbc\}$}
+    \item {$\mathcal{L}_1.(\mathcal{L}_2)^0= \mathcal{L}_1 . \{\lambda\} = \mathcal{L}_1 = \{a,b\}$}
+    \item {$\mathcal{L}_1 . (\mathcal{L}_2)^2 = \mathcal{L}_1 . \{aaaaaa, aaabc, bcaaa, bcbc\} = \{aaaaaaa, aaaabc, abcaaa, abcbc, bcaaaaaa, bcaaabc, bcbcaaa, bcbcbc\}$}
+    \item {$\mathcal{L}_1 . (\mathcal{L}_2)^+ = \mathcal{L}_1 . \{bc,aaa,aaaaaa,aaabc, bcaaa, bcbc, aaaaaaaaa...\}= \{abc, aaaa, bcbc, bcaaa, abcbc, aaaaaaaa, ...\}$}
+    \item {$(\mathcal{L}_1.\mathcal{L}_2)^+ = \{aaaa, abc, bca, bcbc, aaaaaaaa, abcabc, bcabca, bcbc, aaaaaaaaaaaa...\}$}
+    \item {$(\mathcal{L}_1.\mathcal{L}_2)^* = \{\lambda, aaaa, abc, bca, bcbc, aaaaaaaa, abcabc, bcabca, bcbc, aaaaaaaaaaaa...\}$}
+    \item {$\mathcal{L}_1.\Lambda.\mathcal{L}_2 = \mathcal{L}_1.\{\lambda\}.\mathcal{L}_2 = \mathcal{L}_1.\mathcal{L}_2 = \{aaaa, abc, bca, bcbc\}$}
+    \item {$\mathcal{L}_1 \varnothing \mathcal{L}_2 =$ no me acuerdo qué era esto}
+    \item {$(\mathcal{L}_1)^r = \{a, bc\}^r = \{(bc)^r,a^r\}= \{cb,a\}$}
+    \item {$(\mathcal{L}_1.\mathcal{L}_2)^r = \{aaaa, abc, bcaaa, bcbc\}^r = \{(bcbc)^r, (bcaaa)^r, (abc)^r, (aaaa)^r\}=\{cbcb, aaacb, cba, aaaa\}$}
 \end{enumerate}
 
+\section*{Ejercicio 9}{Determinar el complemento de los siguientes lenguajes, considerando los alfabetos indicados en cada caso.}
+\begin{enumerate}[label=\alph*.,font=\itshape]
+    \item {$\mathcal{L} = \Lambda$ para $\Sigma = \{a,b\}$}
+    \item {$\mathcal{L} = \{\lambda,a\}$ para $\Sigma = \{a,b\}$}
+    \item {$\mathcal{L} = \{b\alpha \ | \ \alpha \in \{a,b\}^*\}$ para $\Sigma = \{a,b\}$}
+    \item {$\mathcal{L} = \{a^{2n} \ | \ n \geq 0\}$ para $\Sigma = \{a\}$ y $\Sigma = \{a,b\}$}
+    \item {$ \mathcal{L} = \{\alpha_{1}ba_{2} \ | \ \alpha_{1},\alpha_{2} \in \{a,b\}^* \land |\alpha_{1}| \ge |\alpha_{2}|\}$ para $\Sigma = \{a,b\}$ \\ }
+\end{enumerate}
+
+\begin{enumerate}[label=\alph*.,font=\itshape]
+    \item {$\mathcal{L} = \Lambda$ para $\Sigma = \{a,b\}$}{\\ \\ $\mathcal{L}=\Lambda=\{\lambda\}$}{\\ \\ $\mathcal{L}^c = \Sigma^+$}{\\ \\ En castellano: todas las cadenas que se pueden formar con $a$ y $b$ menos la palabra vacía.}
+    \item {$\mathcal{L} = \{\lambda,a\}$ para $\Sigma = \{a,b\} \\ \\ \mathcal{L}^c = \Sigma^* - \{\lambda,a\} = \{a,b\}^* - \{\lambda,a\} = \{a,b\}^+ - \{a\}$}{\\ \\ En castellano: todas las cadenas que se pueden formar con $a$ y $b$ menos la palabra vacía y la cadena $\{a\}$.}
+    \item {$\mathcal{L} = \{b\alpha \ | \ \alpha \in \{a,b\}^*\}$ para $\Sigma = \{a,b\}$}{\\ \\ $\mathcal{L}^c = \{a\alpha \ | \ \alpha \in \{a,b\}^* \cup \{\lambda\}\}$}{\\ \\ En castellano: todas las cadenas que se pueden formar con $a$ y $b$ que empiezan con $a$ y la palabra vacía.}
+    \item {$\mathcal{L} = \{a^{2n} \ | \ n \geq 0\}$ para $\Sigma = \{a\}$}{\\ \\ $\mathcal{L}^c = \{a^{2n+1} \ | \ n \geq 0\}$}{\\ \\ En castellano: todas las cadenas que se pueden formar con una cantidad impar de $a$. La palabra vacía no está incluida (sí lo está en $\mathcal{L}$).}{\\ \\ \\ $\mathcal{L} = \{a^{2n} \ | \ n \geq 0\}$ para $\Sigma = \{a,b\}$}{\\ \\ $\mathcal{L}^c = \{\{a,b\}^+  \ | \ \{a^n\} \in \mathcal{L} \iff n \equiv 1 \ ($mod $2)\}$}{\\ \\ En castellano: todas las cadenas que se pueden formar con $a$ y $b$ sin incluir la palabra vacía y con la restricción de que si la cadena solo está formada por $a$ la cantidad de $a$ es impar.}
+
+\end{enumerate}
 \end{document}
